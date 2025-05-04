@@ -1,1 +1,1 @@
-OOP course ESPE - DCCO for Software Engineering students of the 202551 semester
+In here you can find a document with the definition of our project and a link to our YouTube video (final version).

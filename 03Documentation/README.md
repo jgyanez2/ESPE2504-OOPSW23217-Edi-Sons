@@ -1,1 +1,1 @@
-OOP course ESPE - DCCO for Software Engineering students of the 202551 semester
+Any other document needed, that is not a model or the requirements definition.
