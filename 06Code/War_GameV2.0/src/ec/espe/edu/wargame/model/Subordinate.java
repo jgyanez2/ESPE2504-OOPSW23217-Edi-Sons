@@ -1,0 +1,17 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ec.espe.edu.wargame.model;
+
+/**
+ *
+ * @author Jose Yanez
+ */
+public class Subordinate extends User {
+
+    public Subordinate(String username, String password) {
+        super(username, password, "Subordinate");
+    }
+}
+
