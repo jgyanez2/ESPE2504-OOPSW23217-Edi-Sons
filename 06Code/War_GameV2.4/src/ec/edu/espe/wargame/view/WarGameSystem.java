@@ -70,4 +70,30 @@ public class WarGameSystem {
                 System.out.println("Credenciales incorrectas o usuario no pertenece al rol seleccionado.");
             }
         }
-    
+            System.out.println("=== Conversor de Superficies ===");
+
+        System.out.print("Enter the surface value: ");
+        double value = scanner.nextDouble();
+
+        System.out.println("Select the FROM unit:");
+        displayUnits();
+        int fromIndex = scanner.nextInt();
+        AreaUnit fromUnit = AreaUnit.values()[fromIndex];
+
+        System.out.println("Select the TO unit:");
+        displayUnits();
+        int toIndex = scanner.nextInt();
+        AreaUnit toUnit = AreaUnit.values()[toIndex];
+
+        double result = AreaConverter.convert(value, fromUnit, toUnit);
+
+        System.out.printf("Result: %.4f %s%n", result, toUnit.name());
+    }
+
+    private static void displayUnits() {
+        AreaUnit[] units = AreaUnit.values();
+        for (int i = 0; i < units.length; i++) {
+            System.out.println(i + " - " + units[i].name());
+        }
+    }
+}
