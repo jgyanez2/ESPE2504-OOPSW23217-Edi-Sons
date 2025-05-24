@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ec.edu.espe.wargame.view;
 
 /**
@@ -15,14 +11,16 @@ import ec.espe.edu.wargame.model.AreaUnit;
 
 public class WarGameSystem {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        AuthSystem authSystem = new AuthSystem();
-        EventManager eventManager = new EventManager();
-        ReportManager reportManager = new ReportManager();
-        GameTimer gameTimer = null;
+    private static Scanner scanner = new Scanner(System.in);
+    private static AuthSystem authSystem = new AuthSystem();
+    private static EventManager eventManager = new EventManager();
+    private static ReportManager reportManager = new ReportManager();
+    private static GameTimer gameTimer = null;
 
-        while (true) {
+    public static void main(String[] args) {
+        boolean running = true;
+        
+        while (running) {
             System.out.println("\n=== Sistema del Juego de Guerra ===");
             System.out.println("Seleccione su rol para iniciar sesión:");
             System.out.println("1. Director");
@@ -50,7 +48,8 @@ public class WarGameSystem {
                     break;
                 case 4:
                     System.out.println("Saliendo del sistema...");
-                    return;
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Opción inválida. Intente de nuevo.");
                     continue;
