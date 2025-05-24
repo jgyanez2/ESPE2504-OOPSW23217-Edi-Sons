@@ -70,10 +70,17 @@ public class WarGameSystem {
 
                 case 4:
                     if (currentUser instanceof Director) {
-                    } else {
-                        System.out.println("Only the Director can create events.");
-                    }
-                    break;
+                    System.out.print("Enter event name: ");
+                    String eventName = scanner.nextLine();
+                    System.out.print("Enter event description: ");
+                    String eventDescription = scanner.nextLine();
+                    LocalDateTime eventDate = LocalDateTime.now();
+                    eventManager.createEvent((Director) currentUser, eventName, eventDescription, eventDate);
+                    System.out.println("Event created successfully!");
+    } else {
+        System.out.println("Only the Director can create events.");
+    }
+    break;
 
                 case 5:
 
@@ -81,19 +88,24 @@ public class WarGameSystem {
                     break;
 
                 case 6:
-                    if (loginUsername.equals("superior1") || loginUsername.equals("director")) {
-                        System.out.print("Enter report title: ");
-                        String titleReport = scanner.nextLine();
-                        System.out.print("Enter report reason: ");
-                        String reason = scanner.nextLine();
-                        System.out.print("Enter report content: ");
-                        String content = scanner.nextLine();
-                        LocalDateTime creationDate = LocalDateTime.now();
-                        reportManager.createReport(authSystem.logIn("superior1", "pass1") ? superior : director, titleReport, reason, content, creationDate);
-                    } else {
-                        System.out.println("Only Superiors or the Director can create reports.");
-                    }
-                    break;
+                    if (currentUser instanceof SuperiorOfficer || currentUser instanceof Director) {
+        System.out.print("Enter report title: ");
+        String titleReport = scanner.nextLine();
+        System.out.print("Enter report reason: ");
+        String reason = scanner.nextLine();
+        System.out.print("Enter report content: ");
+        String content = scanner.nextLine();
+        LocalDateTime creationDate = LocalDateTime.now();
+        
+        if (currentUser instanceof SuperiorOfficer) {
+            reportManager.createReport((SuperiorOfficer) currentUser, titleReport, reason, content, creationDate);
+        } else {
+            reportManager.createReport((Director) currentUser, titleReport, reason, content, creationDate);
+        }
+    } else {
+        System.out.println("Only Superiors or the Director can create reports.");
+    }
+    break;
 
                 case 7:
                     if (loginUsername.equals("director")) {
