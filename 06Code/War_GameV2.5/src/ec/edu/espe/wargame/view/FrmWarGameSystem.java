@@ -4,6 +4,9 @@
  */
 package ec.edu.espe.wargame.view;
 
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin Vaca Edison's OOP ESPE
@@ -31,7 +34,7 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbRols = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuExit = new javax.swing.JMenu();
 
@@ -69,10 +72,10 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
 
         jLabel2.setText("Seleccione su rol para iniciar sesion:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Oficial Superior", "Subordinado" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbRols.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Oficial Superior", "Subordinado" }));
+        cmbRols.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbRolsActionPerformed(evt);
             }
         });
 
@@ -84,7 +87,7 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
                 .addGap(244, 244, 244)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbRols, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -93,7 +96,7 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbRols, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(236, Short.MAX_VALUE))
         );
 
@@ -123,9 +126,31 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void cmbRolsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolsActionPerformed
+            String selectedRole = (String) cmbRols.getSelectedItem();
+            
+            switch(selectedRole) {
+                case "Director" -> {
+                    FrmDirector directorFrame = new FrmDirector();
+                    directorFrame.setVisible(true);
+                    directorFrame.setLocationRelativeTo(this);
+            }
+                    
+                case "Subordinate" -> {
+                    FrmSubordinate subordinateFrame = new FrmSubordinate();
+                    subordinateFrame.setVisible(true);
+                    subordinateFrame.setLocationRelativeTo(this);
+            }
+                
+                case "Superior Officer" -> {
+                    FrmSuperiorOfficer superiorOfficerFrame = new FrmSuperiorOfficer();
+                    superiorOfficerFrame.setVisible(true);
+                    superiorOfficerFrame.setLocationRelativeTo(this);
+            }
+                
+                default -> JOptionPane.showMessageDialog(this, "Please select a valid role", "Selection Error", JOptionPane.WARNING_MESSAGE);
+            }
+    }//GEN-LAST:event_cmbRolsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,7 +189,7 @@ public class FrmWarGameSystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmbRols;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
