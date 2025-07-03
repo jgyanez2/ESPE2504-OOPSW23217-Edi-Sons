@@ -1,28 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.wargame.view;
 
 import ec.edu.espe.wargame.model.AreaConverter;
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author Kevin Vaca Edison's OOP ESPE
+ * @author LABS-ESPE
  */
 public class FrmAreaConverter extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmAreaConverter
-     */
     public FrmAreaConverter() {
         initComponents();
-        setTitle("Area Converter");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setupForm();
     }
 
     /**
@@ -34,102 +23,84 @@ public class FrmAreaConverter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnConvert = new javax.swing.JButton();
         cmbFromUnit = new javax.swing.JComboBox<>();
         cmbToUnit = new javax.swing.JComboBox<>();
         lblResult = new javax.swing.JLabel();
-        txtValue = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnClear = new javax.swing.JButton();
+        btnConvert = new javax.swing.JButton();
+        txtInputValue = new javax.swing.JTextField();
+        lblTitle = new javax.swing.JLabel();
+        lblFrom = new javax.swing.JLabel();
+        lblTo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnConvert.setText("CONVERT");
-        btnConvert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConvertActionPerformed(evt);
-            }
-        });
 
         cmbFromUnit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cmbToUnit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblResult.setText("The result will appear here");
+        lblResult.setText("Result here");
 
-        txtValue.setText("jTextField1");
+        btnConvert.setText("jButton1");
 
-        jLabel1.setText("From:");
+        txtInputValue.setText("jTextField1");
 
-        jLabel2.setText("To:");
+        lblTitle.setText("jLabel2");
 
-        btnClear.setText("CLEAR");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
+        lblFrom.setText("From:");
+
+        lblTo.setText("to:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(lblResult)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
+                .addGap(176, 176, 176))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(lblFrom)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtInputValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbFromUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cmbFromUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(cmbToUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnConvert)
-                                .addGap(43, 43, 43)
-                                .addComponent(btnClear)))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addGap(163, 163, 163)
+                        .addComponent(btnConvert)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmbToUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lblTitle)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbFromUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbToUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(28, 28, 28)
+                    .addComponent(txtInputValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFrom)
+                    .addComponent(lblTo))
+                .addGap(45, 45, 45)
                 .addComponent(lblResult)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConvert)
-                    .addComponent(btnClear))
-                .addGap(67, 67, 67))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(btnConvert)
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConvertActionPerformed
-
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,106 +130,56 @@ public class FrmAreaConverter extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            FrmAreaConverter frame = new FrmAreaConverter();
-            frame.setVisible(true);
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAreaConverter().setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnConvert;
     private javax.swing.JComboBox<String> cmbFromUnit;
     private javax.swing.JComboBox<String> cmbToUnit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFrom;
     private javax.swing.JLabel lblResult;
-    private javax.swing.JTextField txtValue;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTo;
+    private javax.swing.JTextField txtInputValue;
     // End of variables declaration//GEN-END:variables
 
-    private void initCustomComponents() {
-    // 1. Configure combo boxes with AreaConverter units
-        cmbFromUnit.setModel(new DefaultComboBoxModel<>(getUnitNames()));
-        cmbToUnit.setModel(new DefaultComboBoxModel<>(getUnitNames()));
-        
-        // 2. Set default selections
-        cmbFromUnit.setSelectedItem(AreaConverter.Unit.SQUARE_METER.toString());
-        cmbToUnit.setSelectedItem(AreaConverter.Unit.HECTARE.toString());
-        
-        // 3. Configure convert button
-        btnConvert.addActionListener(e -> {
-        // 1. Validate input
-        if (txtValue.getText().trim().isEmpty()) {
-            lblResult.setText("Please enter a value");
-            txtValue.requestFocus();
-            return;
-        }
-        
-        // 2. Try conversion
-        try {
-            double inputValue = Double.parseDouble(txtValue.getText());
-            AreaConverter.Unit fromUnit = (AreaConverter.Unit) cmbFromUnit.getSelectedItem();
-            AreaConverter.Unit toUnit = (AreaConverter.Unit) cmbToUnit.getSelectedItem();
-            
-            // 3. Perform conversion
-            double result = AreaConverter.convert(inputValue, fromUnit, toUnit, 6);
-            
-            // 4. Display formatted result
-            String formattedResult = String.format(
-                "%,.2f %s = %,.2f %s",
-                inputValue, 
-                fromUnit.getSymbol(), 
-                result, 
-                toUnit.getSymbol()
-            );
-            lblResult.setText(formattedResult);
-            
-            // 5. Visual feedback
-            lblResult.setForeground(new Color(0, 100, 0)); // Dark green
-            lblResult.setFont(lblResult.getFont().deriveFont(Font.BOLD));
-            
-        } catch (NumberFormatException ex) {
-            // Handle invalid numbers
-            lblResult.setText("Invalid number: " + txtValue.getText());
-            lblResult.setForeground(Color.RED);
-            txtValue.selectAll();
-            txtValue.requestFocus();
-        } catch (Exception ex) {
-            // Handle other errors
-            lblResult.setText("Conversion error: " + ex.getMessage());
-            lblResult.setForeground(Color.RED);
-        }
-    });
-    
-    // Add Enter key support in text field
-    txtValue.addActionListener(e -> btnConvert.doClick());
-}
-
-        private String[] getUnitNames() {
+    private void setupForm() {
+// 1. Populate unit dropdowns
         AreaConverter.Unit[] units = AreaConverter.Unit.values();
-        String[] names = new String[units.length];
+        String[] unitNames = new String[units.length];
         for (int i = 0; i < units.length; i++) {
-            names[i] = units[i].toString(); // Uses the display name
+            unitNames[i] = units[i] + " (" + units[i].getSymbol() + ")";
         }
-        return names;
-    }
-    
-     private void convertUnits() {
-        try {
-            double value = Double.parseDouble(txtValue.getText());
-            AreaConverter.Unit fromUnit = AreaConverter.Unit.valueOf(
-                cmbFromUnit.getSelectedItem().toString().replace(" ", "_").toUpperCase());
-            AreaConverter.Unit toUnit = AreaConverter.Unit.valueOf(
-                cmbToUnit.getSelectedItem().toString().replace(" ", "_").toUpperCase());
-            
-            double result = AreaConverter.convert(value, fromUnit, toUnit, 4);
-            lblResult.setText(String.format("%.4f %s", result, toUnit.getSymbol()));
-        } catch (NumberFormatException ex) {
-            lblResult.setText("Invalid number");
-        } catch (IllegalArgumentException ex) {
-            lblResult.setText("Conversion error");
-        }
+        cmbFromUnit.setModel(new DefaultComboBoxModel<>(unitNames));
+        cmbToUnit.setModel(new DefaultComboBoxModel<>(unitNames));
+
+        // 2. Set default values
+        btnConvert.setText("Convert");
+        txtInputValue.setText("");
+        lblTitle.setText("Area Unit Converter");
+        lblResult.setText("Enter value and select units");
+
+        // 3. Add button action
+        btnConvert.addActionListener(e -> convertArea());
     }
 
+    private void convertArea() {
+    try {
+            double value = Double.parseDouble(txtInputValue.getText());
+            AreaConverter.Unit fromUnit = AreaConverter.Unit.values()[cmbFromUnit.getSelectedIndex()];
+            AreaConverter.Unit toUnit = AreaConverter.Unit.values()[cmbToUnit.getSelectedIndex()];
+            
+            String result = AreaConverter.getFormattedResult(value, fromUnit, toUnit, 2);
+            lblResult.setText(result);
+        } catch (NumberFormatException ex) {
+            lblResult.setText("Error: Enter a valid number!");
+        } catch (Exception ex) {
+            lblResult.setText("Error: " + ex.getMessage());
+        }
+    }
 }
