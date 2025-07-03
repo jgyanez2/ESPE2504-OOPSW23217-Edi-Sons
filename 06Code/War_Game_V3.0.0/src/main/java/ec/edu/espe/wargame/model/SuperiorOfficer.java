@@ -40,14 +40,14 @@ public class SuperiorOfficer extends User {
                     System.out.println("Select the FROM unit:");
                     displayUnits();
                     int fromIndex = scanner.nextInt();
-                    Area.areaUnit fromUnit = Area.areaUnit.values()[fromIndex];
+                    AreaConverter.Unit fromUnit = AreaConverter.Unit.values()[fromIndex];
 
                     System.out.println("Select the TO unit:");
                     displayUnits();
                     int toIndex = scanner.nextInt();
-                    Area.areaUnit toUnit = Area.areaUnit.values()[toIndex];
+                    AreaConverter.Unit toUnit = AreaConverter.Unit.values()[toIndex];
 
-                    double result = Area.convert(value, fromUnit, toUnit);
+                    double result = AreaConverter.convert(value, fromUnit, toUnit);
 
                     System.out.printf("Result: %.4f %s%n", result, toUnit.name());
                     break;
@@ -64,7 +64,7 @@ public class SuperiorOfficer extends User {
     }
 
     private static void displayUnits() {
-        Area.areaUnit[] units = Area.areaUnit.values();
+        AreaConverter.Unit[] units = AreaConverter.Unit.values();
         for (int i = 0; i < units.length; i++) {
             System.out.println(i + " - " + units[i].name());
         }
