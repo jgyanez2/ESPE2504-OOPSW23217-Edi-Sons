@@ -4,7 +4,7 @@ package ec.edu.espe.wargame.model;
  *
  * @author Jose Yanez
  */
-import ec.espe.edu.wargame.model.*;
+import ec.edu.espe.wargame.model.*;
 import java.util.Scanner;
 
 public class WarGameSystem {
@@ -29,24 +29,26 @@ public class WarGameSystem {
             String archivoCSV = "";
 
             switch (roleOption) {
-                case 1:
+                case 1 -> {
                     role = "Director";
                     authSystem.loadUsersFromCSV("directors.csv", "Director");
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     role = "SuperiorOfficer";
                     authSystem.loadUsersFromCSV("superiors.csv", "SuperiorOfficer");
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     role = "Subordinate";
                     authSystem.loadUsersFromCSV("subordinates.csv", "Subordinate");
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("Saliendo del sistema...");
                     return;
-                default:
+                }
+                default -> {
                     System.out.println("Opcion invalida. Intente de nuevo.");
                     continue;
+                }
             }
 
             System.out.print("Nombre de usuario: ");
