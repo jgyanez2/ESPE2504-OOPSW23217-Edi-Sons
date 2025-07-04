@@ -1,4 +1,5 @@
 package ec.edu.espe.wargame.model;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,10 @@ public class EventManager {
         }
     }
 
+    public List<Event> getEvents() {
+    return events;
+    }
+    
     public void mostrarMenuEventos(Scanner scanner, Director director) {
         while (true) {
             System.out.println("\n=== Menu de Eventos ===");

@@ -2,10 +2,6 @@ package ec.edu.espe.wargame.model;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Jose Yanez
- */
 public class Subordinate extends User {
 
     public Subordinate(String username, String password) {

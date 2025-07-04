@@ -1,3 +1,5 @@
+package ec.edu.espe.wargame.model;
+
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;

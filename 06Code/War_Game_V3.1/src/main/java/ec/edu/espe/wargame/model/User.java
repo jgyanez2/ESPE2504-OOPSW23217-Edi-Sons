@@ -2,10 +2,6 @@ package ec.edu.espe.wargame.model;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Jose Yanez
- */
 public abstract class User {
     protected String username;
     protected String password;

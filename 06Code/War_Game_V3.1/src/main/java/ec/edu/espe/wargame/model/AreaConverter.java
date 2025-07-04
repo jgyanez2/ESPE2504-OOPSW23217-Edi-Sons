@@ -3,9 +3,6 @@ package ec.edu.espe.wargame.model;
 import java.util.EnumMap;
 import java.util.Map;
 
-/**
- * @author Kevin Vaca Edison's OOP ESPE
- */
 public final class AreaConverter {
     
     public enum Unit {

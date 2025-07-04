@@ -2,10 +2,6 @@ package ec.edu.espe.wargame.model;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Jose Yanez
- */
 public class SuperiorOfficer extends User {
 
     public SuperiorOfficer(String username, String password) {

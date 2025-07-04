@@ -1,4 +1,5 @@
-import ec.edu.espe.wargame.model.*;
+package ec.edu.espe.wargame.model;
+
 import java.util.Scanner;
 
 public class WarGameSystem {

@@ -1,11 +1,7 @@
 package ec.edu.espe.wargame.model;
-
+import ec.edu.espe.wargame.model.GameTimer;
 import java.util.Scanner;
 
-/**
- *
- * @author Jose Yanez
- */
 public class Director extends User {
 
     public Director(String username, String password) {

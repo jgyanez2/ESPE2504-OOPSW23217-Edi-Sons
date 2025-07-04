@@ -1,4 +1,5 @@
 package ec.edu.espe.wargame.model;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;

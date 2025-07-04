@@ -1,9 +1,5 @@
 package ec.edu.espe.wargame.model;
 
-/**
- *
- * @author Mateo Unda
- */
 import java.time.LocalDateTime;
 
 public class Event {
