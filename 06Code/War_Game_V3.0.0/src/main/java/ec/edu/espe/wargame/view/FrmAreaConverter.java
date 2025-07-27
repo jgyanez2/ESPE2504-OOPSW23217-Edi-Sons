@@ -1,29 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.wargame.view;
 
 import ec.edu.espe.wargame.model.AreaConverter;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JList;
 
 /**
  *
  * @author Kevin Vaca Edison's OOP ESPE
  */
 public class FrmAreaConverter extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FrmAreaConverter
-     */
-    public FrmAreaConverter() {
-        initComponents();
-        setTitle("Area Converter");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,10 +119,42 @@ public class FrmAreaConverter extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConvertActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        // TODO add your handling code here:
+    txtValue.setText("");
+    
+    // Reset result display
+    lblResult.setText("Result will appear here");
+    lblResult.setForeground(Color.BLACK); // Reset to default color
+    lblResult.setFont(lblResult.getFont().deriveFont(Font.PLAIN));
+    
+    // Reset to default units if desired
+    cmbFromUnit.setSelectedItem(AreaConverter.Unit.SQUARE_METER);
+    cmbToUnit.setSelectedItem(AreaConverter.Unit.HECTARE);
+    
+    // Set focus back to input field
+    txtValue.requestFocusInWindow();
     }//GEN-LAST:event_btnClearActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnConvert;
+    private javax.swing.JComboBox<String> cmbFromUnit;
+    private javax.swing.JComboBox<String> cmbToUnit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblResult;
+    private javax.swing.JTextField txtValue;
+    // End of variables declaration//GEN-END:variables
+
+    
     /**
+     * Creates new form FrmAreaConverter
+     */
+    public FrmAreaConverter() {
+        initComponents();
+        initCustomComponents();
+    }
+
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -165,100 +188,63 @@ public class FrmAreaConverter extends javax.swing.JFrame {
 
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnConvert;
-    private javax.swing.JComboBox<String> cmbFromUnit;
-    private javax.swing.JComboBox<String> cmbToUnit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblResult;
-    private javax.swing.JTextField txtValue;
-    // End of variables declaration//GEN-END:variables
-
-    private void initCustomComponents() {
-    // 1. Configure combo boxes with AreaConverter units
-        cmbFromUnit.setModel(new DefaultComboBoxModel<>(getUnitNames()));
-        cmbToUnit.setModel(new DefaultComboBoxModel<>(getUnitNames()));
-        
-        // 2. Set default selections
-        cmbFromUnit.setSelectedItem(AreaConverter.Unit.SQUARE_METER.toString());
-        cmbToUnit.setSelectedItem(AreaConverter.Unit.HECTARE.toString());
-        
-        // 3. Configure convert button
-        btnConvert.addActionListener(e -> {
-        // 1. Validate input
-        if (txtValue.getText().trim().isEmpty()) {
-            lblResult.setText("Please enter a value");
-            txtValue.requestFocus();
-            return;
-        }
-        
-        // 2. Try conversion
-        try {
-            double inputValue = Double.parseDouble(txtValue.getText());
-            AreaConverter.Unit fromUnit = (AreaConverter.Unit) cmbFromUnit.getSelectedItem();
-            AreaConverter.Unit toUnit = (AreaConverter.Unit) cmbToUnit.getSelectedItem();
-            
-            // 3. Perform conversion
-            double result = AreaConverter.convert(inputValue, fromUnit, toUnit, 6);
-            
-            // 4. Display formatted result
-            String formattedResult = String.format(
-                "%,.2f %s = %,.2f %s",
-                inputValue, 
-                fromUnit.getSymbol(), 
-                result, 
-                toUnit.getSymbol()
-            );
-            lblResult.setText(formattedResult);
-            
-            // 5. Visual feedback
-            lblResult.setForeground(new Color(0, 100, 0)); // Dark green
-            lblResult.setFont(lblResult.getFont().deriveFont(Font.BOLD));
-            
-        } catch (NumberFormatException ex) {
-            // Handle invalid numbers
-            lblResult.setText("Invalid number: " + txtValue.getText());
-            lblResult.setForeground(Color.RED);
-            txtValue.selectAll();
-            txtValue.requestFocus();
-        } catch (Exception ex) {
-            // Handle other errors
-            lblResult.setText("Conversion error: " + ex.getMessage());
-            lblResult.setForeground(Color.RED);
-        }
-    });
+        private final Map<String, AreaConverter.Unit> unitMap = new LinkedHashMap<>();
     
-    // Add Enter key support in text field
-    txtValue.addActionListener(e -> btnConvert.doClick());
-}
 
-        private String[] getUnitNames() {
-        AreaConverter.Unit[] units = AreaConverter.Unit.values();
-        String[] names = new String[units.length];
-        for (int i = 0; i < units.length; i++) {
-            names[i] = units[i].toString(); // Uses the display name
+     private void initCustomComponents() {
+        // Initialize the unit mapping
+        for (AreaConverter.Unit unit : AreaConverter.Unit.values()) {
+            String displayName = unit.toString() + " (" + unit.getSymbol() + ")";
+            unitMap.put(displayName, unit);
         }
-        return names;
+
+        // Configure combo boxes
+        configureComboBoxes();
+        
+        // Set default selections
+        cmbFromUnit.setSelectedItem("Square Meter (m²)");
+        cmbToUnit.setSelectedItem("Hectare (ha)");
+        
+        // Add action listeners
+        btnConvert.addActionListener(e -> performConversion());
+        txtValue.addActionListener(e -> performConversion());
     }
-    
-     private void convertUnits() {
+
+    );
+}
+private void configureComboBoxes() {
+        // Clear existing items
+        cmbFromUnit.removeAllItems();
+        cmbToUnit.removeAllItems();
+        
+        // Add all unit display names
+        for (String displayName : unitMap.keySet()) {
+            cmbFromUnit.addItem(displayName);
+            cmbToUnit.addItem(displayName);
+        }
+    }
+
+    private void performConversion() {
         try {
             double value = Double.parseDouble(txtValue.getText());
-            AreaConverter.Unit fromUnit = AreaConverter.Unit.valueOf(
-                cmbFromUnit.getSelectedItem().toString().replace(" ", "_").toUpperCase());
-            AreaConverter.Unit toUnit = AreaConverter.Unit.valueOf(
-                cmbToUnit.getSelectedItem().toString().replace(" ", "_").toUpperCase());
+            
+            // Get selected units using our mapping
+            AreaConverter.Unit fromUnit = unitMap.get(cmbFromUnit.getSelectedItem());
+            AreaConverter.Unit toUnit = unitMap.get(cmbToUnit.getSelectedItem());
             
             double result = AreaConverter.convert(value, fromUnit, toUnit, 4);
-            lblResult.setText(String.format("%.4f %s", result, toUnit.getSymbol()));
+            lblResult.setText(String.format("%.4f %s = %.4f %s", 
+                value, fromUnit.getSymbol(), result, toUnit.getSymbol()));
         } catch (NumberFormatException ex) {
-            lblResult.setText("Invalid number");
-        } catch (IllegalArgumentException ex) {
-            lblResult.setText("Conversion error");
+            lblResult.setText("Invalid number format");
+        } catch (NullPointerException ex) {
+            lblResult.setText("Please select units");
         }
     }
 
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrmAreaConverter().setVisible(true);
+        });
+    }
 }

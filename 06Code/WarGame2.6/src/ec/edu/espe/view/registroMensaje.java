@@ -55,7 +55,6 @@ public class registroMensaje extends javax.swing.JFrame {
         tdestinatario = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tcuerpo = new javax.swing.JTextArea();
-        jdfFechaEnvio = new com.toedter.calendar.JDateChooser();
         btnRegistrarMensaje = new javax.swing.JButton();
         btnCancelarTramite = new javax.swing.JButton();
         btnSalirTramite = new javax.swing.JButton();
@@ -72,36 +71,28 @@ public class registroMensaje extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DEL MENSAJE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 36), new java.awt.Color(0, 0, 0))); // NOI18N
-        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DEL MENSAJE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 36))); // NOI18N
         jPanel2.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Remitente");
 
         jLabel5.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Tipo de mensaje");
 
         jLabel6.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Asunto");
 
         jLabel7.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Cuerpo del mensaje");
 
         jLabel9.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Destinatarios");
 
         jLabel11.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Fecha Envio");
 
         jLabel12.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 1, 34)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Observaciones");
 
         ttipoMensaje.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 0, 14)); // NOI18N
@@ -112,7 +103,6 @@ public class registroMensaje extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tcuerpo);
 
         btnRegistrarMensaje.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 0, 18)); // NOI18N
-        btnRegistrarMensaje.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrarMensaje.setText("ENVIAR MENSAJE");
         btnRegistrarMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrarMensaje.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +112,6 @@ public class registroMensaje extends javax.swing.JFrame {
         });
 
         btnCancelarTramite.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 0, 18)); // NOI18N
-        btnCancelarTramite.setForeground(new java.awt.Color(0, 0, 0));
         btnCancelarTramite.setText("CANCELAR");
         btnCancelarTramite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelarTramite.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +121,6 @@ public class registroMensaje extends javax.swing.JFrame {
         });
 
         btnSalirTramite.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 0, 18)); // NOI18N
-        btnSalirTramite.setForeground(new java.awt.Color(0, 0, 0));
         btnSalirTramite.setText("SALIR");
         btnSalirTramite.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalirTramite.addActionListener(new java.awt.event.ActionListener() {
@@ -151,9 +139,6 @@ public class registroMensaje extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jdfFechaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel6))
@@ -179,7 +164,7 @@ public class registroMensaje extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -225,9 +210,7 @@ public class registroMensaje extends javax.swing.JFrame {
                         .addComponent(tasunto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jdfFechaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
+                        .addGap(106, 106, 106)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrarMensaje)
                             .addComponent(btnCancelarTramite)
@@ -456,7 +439,6 @@ public class registroMensaje extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private com.toedter.calendar.JDateChooser jdfFechaEnvio;
     private javax.swing.JTextField tasunto;
     private javax.swing.JTextArea tcuerpo;
     private javax.swing.JTextField tdestinatario;
