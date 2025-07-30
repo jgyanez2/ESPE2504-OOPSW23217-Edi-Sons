@@ -64,8 +64,9 @@ public class UserView {
         
         System.out.print("Sector: ");
         String sector = scanner.nextLine();
+        String user = null;
         
-        User newUser = new User(id, type, username, password, country, sector);
+User newUser = new User(id, type, user, password, country, sector);
         controller.createUser(newUser);
         System.out.println("User created successfully!");
     }
@@ -147,18 +148,6 @@ public class UserView {
         System.out.print("New Sector [" + existing.getSector() + "]: ");
         String sector = scanner.nextLine();
         
-        // Use existing values if no new input provided
-        User updatedUser = new User(
-            id.isEmpty() ? existing.getId() : id,
-            type.isEmpty() ? existing.getType() : type,
-            username, // username can't be changed (used as identifier)
-            password.isEmpty() ? existing.getPassword() : password,
-            country.isEmpty() ? existing.getCountry() : country,
-            sector.isEmpty() ? existing.getSector() : sector
-        );
-        
-        long updated = controller.updateUser(username, updatedUser);
-        System.out.println(updated + " user(s) updated");
     }
 
     private void deleteUser() {

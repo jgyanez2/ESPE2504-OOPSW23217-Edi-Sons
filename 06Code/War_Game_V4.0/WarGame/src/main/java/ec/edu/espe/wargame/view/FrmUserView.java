@@ -4,6 +4,7 @@ import ec.edu.espe.wargame.controller.FrmController;
 import ec.edu.espe.wargame.controller.UserController;
 
 import java.awt.CardLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -17,6 +18,7 @@ public class FrmUserView extends javax.swing.JFrame {
 
     private JPanel mainPanel;
     private CardLayout cardLayout;
+    private JFrame FrmLogin;
     
     public FrmUserView() {
         controller = new UserController();
@@ -35,70 +37,66 @@ public class FrmUserView extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnCreateUser = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("WarGameUserMenu");
 
-        btnCreateUser.setText("CreateUser");
+        btnCreateUser.setText("Crear Usuario");
         btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateUserActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        btnLogin.setText("Iniciar Sesión");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("jButton3");
-
-        jButton4.setText("jButton4");
-
-        jButton5.setText("Exit");
+        jButton5.setText("Salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(162, 162, 162)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addComponent(btnCreateUser))
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton4))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(btnLogin)
+                    .addComponent(btnCreateUser))
+                .addContainerGap(136, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(159, 159, 159))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(157, 157, 157))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateUser)
-                    .addComponent(jButton2))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
+                .addComponent(btnCreateUser)
+                .addGap(30, 30, 30)
+                .addComponent(btnLogin)
+                .addGap(43, 43, 43)
                 .addComponent(jButton5)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,6 +106,16 @@ public class FrmUserView extends javax.swing.JFrame {
         FrmCreateUser frmCreateUser = new FrmCreateUser();
         FrmController.switchFrames(this, frmCreateUser);
     }//GEN-LAST:event_btnCreateUserActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        FrmLogin FrmLogin = new FrmLogin();
+        FrmController.switchFrames(this, FrmLogin);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +155,7 @@ public class FrmUserView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

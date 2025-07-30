@@ -15,8 +15,13 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 public class UserController {
+
+    public static boolean authenticate(User user) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private final MongoDatabase db;
     private final String collectionName = "Users";
+    private User user;
 
     public UserController() {
         this.db = MongoDBConnection.getDatabase();
@@ -179,16 +184,30 @@ public class UserController {
             throw e;
         }
     }
+public boolean authenticate(String username, String password) {
+    try {
+        Bson filter = Filters.and(
+            Filters.eq("user", username),
+            Filters.eq("password", password)
+        );
+
+        Document userDoc = getCollection().find(filter).first();
+        return userDoc != null;
+    } catch (Exception e) {
+        System.err.println("Authentication error: " + e.getMessage());
+        return false;
+    }
+}
 
     // Helper method to convert Document to User
     private User documentToUser(Document doc) {
-        return new User(
-            doc.getString("id"),
-            doc.getString("type"),
-            doc.getString("user"),
-            doc.getString("password"),
-            doc.getString("country"),
-            doc.getString("sector")
-        );
-    }
+    return new User(
+        doc.getString("id"),
+        doc.getString("type"),
+        doc.getString("user"),
+        doc.getString("password"),
+        doc.getString("country"),
+        doc.getString("sector")
+    );
+}
 }
