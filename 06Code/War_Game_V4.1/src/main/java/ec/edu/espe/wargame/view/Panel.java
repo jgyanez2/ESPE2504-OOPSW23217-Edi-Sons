@@ -5,6 +5,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+/**
+ *
+ * @author Mateo Unda
+ */
+
 public class Panel extends JPanel {
     private Image imagen;
 

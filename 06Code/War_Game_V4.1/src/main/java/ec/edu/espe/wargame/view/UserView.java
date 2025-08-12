@@ -5,6 +5,10 @@ import ec.edu.espe.wargame.model.User;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *
+ * @author José Yanez
+ */
 public class UserView {
     private final UserController controller;
     private final Scanner scanner;

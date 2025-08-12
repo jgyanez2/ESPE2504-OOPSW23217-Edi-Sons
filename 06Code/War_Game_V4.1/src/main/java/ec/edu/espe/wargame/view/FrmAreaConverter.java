@@ -6,7 +6,7 @@ package ec.edu.espe.wargame.view;
 
 /**
  *
- * @author USER
+ * @author Bernardo Suarez
  */
 public class FrmAreaConverter extends javax.swing.JFrame {
     

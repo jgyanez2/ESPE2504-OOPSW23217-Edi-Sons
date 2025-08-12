@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Kevin Vaca Edison's OOP ESPE
+ * @author Bernardo Suarez
  */
 public class WarGameSystem {
 
