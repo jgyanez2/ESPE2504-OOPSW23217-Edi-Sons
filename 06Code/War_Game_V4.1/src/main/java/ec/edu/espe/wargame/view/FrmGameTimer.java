@@ -15,7 +15,8 @@ import javax.swing.ImageIcon;
  * @author Mateo Unda
  */
 public class FrmGameTimer extends javax.swing.JFrame {
-    
+        private final Panel panel;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmGameTimer.class.getName());
 private javax.swing.Timer blinkTimer;
 private Timer timer;
@@ -35,27 +36,24 @@ blinkTimer = new javax.swing.Timer(500, e -> {
      * Creates new form FrmGameTimer
      */
     public FrmGameTimer() {
+        panel = new Panel("/ec/edu/espe/wargame/view/resources/imgwg4.jpg");
+        setContentPane(panel);
         initComponents();
-                Font largeBoldFont = new Font("Segoe UI", Font.BOLD, 25);
+                Font largeBoldFont = new Font("Segoe UI", Font.BOLD, 28);
         lblViewTime.setFont(largeBoldFont);
 
     Color darkGreen = new Color(85, 107, 47);
 
-btnStart.setBackground(darkGreen);
-btnStart.setForeground(Color.WHITE);
-
-btnPause.setBackground(darkGreen);
-btnPause.setForeground(Color.WHITE);
-
-btnContinue.setBackground(darkGreen);
-btnContinue.setForeground(Color.WHITE);
-
-btnReboot.setBackground(darkGreen);
-btnReboot.setForeground(Color.WHITE);
-
-btnBack.setBackground(darkGreen);
-btnBack.setForeground(Color.WHITE);
-lblViewTime.setForeground(Color.RED);
+    lblViewTime.setForeground(Color.WHITE);
+    lbl777.setForeground(Color.WHITE);
+    
+    lbl777.setFont(new Font("Arial", Font.BOLD, 20));
+    txtDuration.setFont(new Font("Arial", Font.BOLD, 20));
+    btnStart.setFont(new Font("Arial", Font.BOLD, 20));
+    btnPause.setFont(new Font("Arial", Font.BOLD, 20));
+    btnContinue.setFont(new Font("Arial", Font.BOLD, 20));
+    btnReboot.setFont(new Font("Arial", Font.BOLD, 20));
+    
     }
   private void startTimer(long durationMillis) {
     if (isRunning) {
@@ -150,7 +148,7 @@ private void showMessage(String message) {
         btnBack = new javax.swing.JButton();
         lblViewTime = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl777 = new javax.swing.JLabel();
         txtDuration = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,7 +190,7 @@ private void showMessage(String message) {
 
         lblViewTime.setText(" ");
 
-        jLabel2.setText("Ingrese su tiempo:");
+        lbl777.setText("Ingrese su tiempo:");
 
         txtDuration.setText("00:00");
         txtDuration.addActionListener(new java.awt.event.ActionListener() {
@@ -205,53 +203,56 @@ private void showMessage(String message) {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPause)
-                            .addComponent(btnContinue)
-                            .addComponent(btnStart)
-                            .addComponent(btnReboot))
-                        .addGap(211, 211, 211))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(116, 116, 116))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(76, 76, 76)
-                        .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(128, 128, 128))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblViewTime, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95))))
+                        .addComponent(btnPause, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(btnContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnReboot, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(lblViewTime, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(lbl777, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(224, 224, 224))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblLogo)
-                .addGap(31, 31, 31)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(btnStart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl777, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addComponent(lblViewTime, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPause)
-                .addGap(18, 18, 18)
-                .addComponent(btnContinue)
-                .addGap(18, 18, 18)
-                .addComponent(btnReboot)
-                .addGap(15, 15, 15)
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPause, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReboot, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnBack)
-                .addGap(26, 26, 26))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -320,7 +321,7 @@ private void showMessage(String message) {
     private javax.swing.JButton btnPause;
     private javax.swing.JButton btnReboot;
     private javax.swing.JToggleButton btnStart;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl777;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblViewTime;
     private javax.swing.JTextField txtDuration;

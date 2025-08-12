@@ -15,12 +15,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Kevin Vaca Edison's OOP ESPE
  */
 public class FrmListUser extends javax.swing.JFrame {
+    private final Panel panel;
 
     /**
      * Creates new form FrmListUsers
      */
     public FrmListUser() {
+panel = new Panel("/ec/edu/espe/wargame/view/resources/imgwg2.jpg");
+        setContentPane(panel);
         initComponents();
+        
+        tblUsers.setOpaque(false);
+        btnRefresh.setOpaque(false);
+        btnBack.setOpaque(false);
+
     }
 
     /**
@@ -38,6 +46,7 @@ public class FrmListUser extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setForeground(new java.awt.Color(0, 102, 51));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -57,14 +66,14 @@ public class FrmListUser extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUsers);
 
-        btnRefresh.setText("Refresh");
+        btnRefresh.setText("Actualizar");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
 
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -84,13 +93,13 @@ public class FrmListUser extends javax.swing.JFrame {
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnRefresh)
@@ -98,7 +107,7 @@ public class FrmListUser extends javax.swing.JFrame {
                     .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();

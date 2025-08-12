@@ -6,7 +6,9 @@ import ec.edu.espe.wargame.controller.UserController;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+import javax.swing.*;
+import java.awt.*;
+import java.net.URL;
 /**
  *
  * @author Kevin Vaca Edison's OOP ESPE
@@ -18,11 +20,25 @@ public class FrmUserView extends javax.swing.JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
     
-    public FrmUserView() {
-        controller = new UserController();
-        initComponents();
-    }
-    
+public FrmUserView() {
+    controller = new UserController();
+    initComponents();
+
+    LblBigText.setFont(new Font("Arial", Font.BOLD, 36));
+
+    URL imageUrl = getClass().getResource("/ec/edu/espe/wargame/view/resources/imgwg.jpg");
+    System.out.println("URL: " + imageUrl);
+
+    SwingUtilities.invokeLater(() -> {
+        ImageIcon icon = new ImageIcon(getClass().getResource("/ec/edu/espe/wargame/view/resources/imgwg.jpg"));
+        Image img = icon.getImage().getScaledInstance(lblImg.getWidth(), lblImg.getHeight(), Image.SCALE_SMOOTH);
+        lblImg.setIcon(new ImageIcon(img));
+        lblImg.setText("");
+    });
+}
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +49,6 @@ public class FrmUserView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         btnCreateUser = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
@@ -43,33 +58,34 @@ public class FrmUserView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
+        LblBigText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("WarGameUserMenu");
-
-        btnCreateUser.setText("CreateUser");
+        btnCreateUser.setText("Crear Usuario");
         btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateUserActionPerformed(evt);
             }
         });
 
-        jButton2.setText("List of Users");
+        jButton2.setText("Lista de Usuarios");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        btnDeleteUser.setText("Delete User");
+        btnDeleteUser.setText("Eliminar Usuario");
         btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteUserActionPerformed(evt);
             }
         });
 
-        btnUpdateUser.setText("Update User");
+        btnUpdateUser.setText("Actualizar usuarios");
         btnUpdateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateUserActionPerformed(evt);
@@ -106,62 +122,75 @@ public class FrmUserView extends javax.swing.JFrame {
             }
         });
 
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/wargame/view/resources/imgwg.jpg"))); // NOI18N
+
+        LblBigText.setText("Bienvenidos a");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCreateUser)
-                        .addGap(52, 52, 52)
-                        .addComponent(jButton2)
-                        .addGap(66, 66, 66))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(46, 46, 46)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUpdateUser)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDeleteUser, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(45, 45, 45))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(252, 252, 252))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(278, 278, 278)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(201, 201, 201)
+                        .addComponent(LblBigText, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnCreateUser)
+                                    .addGap(52, 52, 52)
+                                    .addComponent(jButton2)
+                                    .addGap(53, 53, 53)
+                                    .addComponent(btnUpdateUser)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(btnDeleteUser))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jButton6)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jButton4)
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel2)))))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateUser)
                     .addComponent(jButton2)
                     .addComponent(btnUpdateUser)
                     .addComponent(btnDeleteUser))
-                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(LblBigText, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
+                    .addComponent(jButton6)
                     .addComponent(jButton4)
-                    .addComponent(jButton6))
-                .addGap(38, 38, 38)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addGap(40, 40, 40)
                 .addComponent(jButton5)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -242,6 +271,7 @@ public class FrmUserView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblBigText;
     private javax.swing.JButton btnCreateUser;
     private javax.swing.JButton btnDeleteUser;
     private javax.swing.JButton btnUpdateUser;
@@ -251,6 +281,7 @@ public class FrmUserView extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblImg;
     // End of variables declaration//GEN-END:variables
 }

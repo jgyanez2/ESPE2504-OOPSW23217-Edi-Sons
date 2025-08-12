@@ -1,5 +1,6 @@
 ec\edu\espe\wargame\view\FrmUserView$7.class
 ec\edu\espe\wargame\view\FrmListUser$1.class
+ec\edu\espe\wargame\view\FrmCreateUser$4.class
 ec\edu\espe\wargame\view\FrmDeleteUser$3.class
 ec\edu\espe\wargame\view\FrmGameTimer$3.class
 ec\edu\espe\wargame\view\FrmListUser.class
@@ -29,6 +30,7 @@ ec\edu\espe\wargame\view\FrmDeleteUser.class
 ec\edu\espe\wargame\view\FrmUpdateUser$2.class
 ec\edu\espe\wargame\view\FrmUpdateUser$5.class
 ec\edu\espe\wargame\view\FrmCreateUser.class
+ec\edu\espe\wargame\view\Panel.class
 ec\edu\espe\wargame\view\FrmDeleteUser$1.class
 ec\edu\espe\wargame\view\FrmGameTimer$5.class
 ec\edu\espe\wargame\view\FrmGameTimer.class

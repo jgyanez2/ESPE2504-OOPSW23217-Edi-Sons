@@ -2,18 +2,32 @@ package ec.edu.espe.wargame.view;
 
 import ec.edu.espe.wargame.controller.FrmController;
 import ec.edu.espe.wargame.controller.UserController;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
  * @author Kevin Vaca Edison's OOP ESPE
  */
 public class FrmDeleteUser extends javax.swing.JFrame {
+    private final Panel panel;
 
     /**
      * Creates new form FrmDeleteUser
      */
     public FrmDeleteUser() {
+panel = new Panel("/ec/edu/espe/wargame/view/resources/imgwg2.jpg");
+        setContentPane(panel);
         initComponents();
+        lblData.setForeground(Color.WHITE);
+        
+        lblData.setOpaque(false);
+        txtUsernameToDelete.setOpaque(false);
+        btnDelete.setOpaque(false);
+        btnBack.setOpaque(false);
+        
+        lblData.setFont(new Font("Arial", Font.BOLD, 20));
+
     }
 
     /**
@@ -25,25 +39,25 @@ public class FrmDeleteUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
         txtUsernameToDelete = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Enter the username to delete");
+        lblData.setText("Ingrese el usuario que desee eliminar");
+        lblData.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        txtUsernameToDelete.setText("jTextField1");
-
-        btnDelete.setText("Delete");
+        btnDelete.setText("Eliminar");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -54,33 +68,39 @@ public class FrmDeleteUser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(151, 151, 151))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(txtUsernameToDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
+                        .addGap(155, 155, 155)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDelete)
-                                .addGap(49, 49, 49)
-                                .addComponent(btnBack))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(116, Short.MAX_VALUE))
+                            .addComponent(btnDelete)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(txtUsernameToDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(lblData)))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel1)
+                .addGap(106, 106, 106)
+                .addComponent(lblData)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(38, 38, 38)
                 .addComponent(txtUsernameToDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
-                    .addComponent(btnBack))
-                .addContainerGap(107, Short.MAX_VALUE))
+                    .addComponent(btnBack)
+                    .addComponent(btnDelete))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,7 +171,8 @@ public class FrmDeleteUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblData;
     private javax.swing.JTextField txtUsernameToDelete;
     // End of variables declaration//GEN-END:variables
 }

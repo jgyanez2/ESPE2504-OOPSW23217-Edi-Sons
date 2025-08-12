@@ -3,18 +3,44 @@ package ec.edu.espe.wargame.view;
 import ec.edu.espe.wargame.controller.FrmController;
 import ec.edu.espe.wargame.controller.UserController;
 import ec.edu.espe.wargame.model.User;
+import java.awt.Color;
 
 /**
  *
  * @author Kevin Vaca Edison's OOP ESPE
  */
 public class FrmCreateUser extends javax.swing.JFrame {
+    private final Panel panel;
 
     /**
      * Creates new form CreateUserFrame
      */
     public FrmCreateUser() {
+panel = new Panel("/ec/edu/espe/wargame/view/resources/imgwg2.jpg");
+        setContentPane(panel);
         initComponents();
+        
+        lbl11.setForeground(Color.WHITE);
+        lbl12.setForeground(Color.WHITE);
+        lbl13.setForeground(Color.WHITE);
+        lbl14.setForeground(Color.WHITE);
+        lbl15.setForeground(Color.WHITE);
+        lbl16.setForeground(Color.WHITE);
+
+        lbl11.setOpaque(false);
+        lbl12.setOpaque(false);
+        lbl13.setOpaque(false);
+        lbl14.setOpaque(false);
+        lbl15.setOpaque(false);
+        lbl16.setOpaque(false);
+        btnSave.setOpaque(false);
+        btnBack.setOpaque(false);
+        txtId.setOpaque(false);
+        txtType.setOpaque(false);
+        txtUsername.setOpaque(false);
+        txtPassword.setOpaque(false);
+        txtCountry.setOpaque(false);
+        txtSector.setOpaque(false);
     }
 
     /**
@@ -40,12 +66,12 @@ public class FrmCreateUser extends javax.swing.JFrame {
         txtCountry = new javax.swing.JTextField();
         txtSector = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        lbl11 = new javax.swing.JLabel();
+        lbl16 = new javax.swing.JLabel();
+        lbl15 = new javax.swing.JLabel();
+        lbl14 = new javax.swing.JLabel();
+        lbl13 = new javax.swing.JLabel();
+        lbl12 = new javax.swing.JLabel();
 
         jLabel7.setText("Cédula de identidad: ");
 
@@ -75,29 +101,23 @@ public class FrmCreateUser extends javax.swing.JFrame {
             }
         });
 
-        txtId.setText("jTextField1");
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
 
-        txtType.setText("jTextField2");
+        lbl11.setText("Cédula de identidad: ");
 
-        txtUsername.setText("jTextField3");
+        lbl16.setText("Sector:");
 
-        txtCountry.setText("jTextField5");
+        lbl15.setText("País:");
 
-        txtSector.setText("jTextField6");
+        lbl14.setText("Contraseña:");
 
-        txtPassword.setText("jPasswordField1");
+        lbl13.setText("Usuario:");
 
-        jLabel13.setText("Cédula de identidad: ");
-
-        jLabel14.setText("Sector:");
-
-        jLabel15.setText("País:");
-
-        jLabel16.setText("Contraseña:");
-
-        jLabel17.setText("Usuario:");
-
-        jLabel18.setText("Tipo:");
+        lbl12.setText("Tipo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,27 +128,27 @@ public class FrmCreateUser extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl14, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
+                                .addComponent(lbl15, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl16, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl11))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSector, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtType)
+                            .addComponent(txtUsername)
+                            .addComponent(txtPassword)
+                            .addComponent(txtCountry)
+                            .addComponent(txtSector)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(btnSave)
                         .addGap(69, 69, 69)
                         .addComponent(btnBack)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,12 +156,12 @@ public class FrmCreateUser extends javax.swing.JFrame {
                 .addGap(0, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(lbl11)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel18)
+                        .addComponent(lbl12)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
+                            .addComponent(lbl13)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,15 +169,15 @@ public class FrmCreateUser extends javax.swing.JFrame {
                         .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
+                    .addComponent(lbl14)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(lbl15))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
+                    .addComponent(lbl16)
                     .addComponent(txtSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,6 +211,10 @@ public class FrmCreateUser extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         FrmController.switchFrames(this, new FrmUserView());
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,15 +257,15 @@ public class FrmCreateUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbl11;
+    private javax.swing.JLabel lbl12;
+    private javax.swing.JLabel lbl13;
+    private javax.swing.JLabel lbl14;
+    private javax.swing.JLabel lbl15;
+    private javax.swing.JLabel lbl16;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtId;
     private javax.swing.JPasswordField txtPassword;
